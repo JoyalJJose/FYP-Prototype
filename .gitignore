@@ -1,0 +1,19 @@
+# Python Virtual Environments
+crowdCount/
+venv/
+env/
+.venv/
+
+# Dataset Files
+Thermal Image Crowd Counting/
+
+# Model Training Outputs (large files)
+runs/
+datasets/
+results/
+*.pt
+*.pth
+
+# Python Cache
+__pycache__/
+*.pyc
