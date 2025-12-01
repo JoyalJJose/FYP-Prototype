@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  inferproto:
+    build:
+      context: ./InferProto
+      dockerfile: Dockerfile
+    image: fyp-inferproto:latest
+    volumes:
+      # Mount sample images directory
+      - ./InferProto/data/sample_images:/app/data/sample_images
+      # Mount models directory if it exists
+      - ./InferProto/models:/app/models
+      # Mount output directory for saved visualizations
+      - ./InferProto/output:/app/output
+    stdin_open: true
+    tty: true
+
+  scheduler:
+    build:
+      context: ./Scheduler
+      dockerfile: Dockerfile
+    image: fyp-scheduler:latest
+    volumes:
+      # Mount data files
+      - ./Scheduler/dataIncrease.txt:/app/dataIncrease.txt
+      - ./Scheduler/dataDecrease.txt:/app/dataDecrease.txt
+    stdin_open: true
+    tty: true
+

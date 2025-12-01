@@ -2,8 +2,13 @@
 Test script that randomly selects an image and runs inference with visualization.
 """
 
+import os
 import random
 from pathlib import Path
+import matplotlib
+# Set backend for Docker/non-interactive environments
+if os.environ.get('MPLBACKEND'):
+    matplotlib.use(os.environ.get('MPLBACKEND'))
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2 as cv
@@ -22,6 +27,9 @@ image_files = list(IMAGES_DIR.glob("*.jpg"))
 # Load model
 print(f"Loading model from {MODEL_PATH}...")
 counter = ThermalCrowdCounter(str(MODEL_PATH), conf_threshold=0.25)
+
+# Counter for sequential file naming
+file_counter = 0
 
 # Loop through random images until user exits
 while True:
@@ -45,9 +53,20 @@ while True:
     plt.title(f"{selected_image.name}\nPeople Count: {count}", fontsize=14, fontweight='bold')
     plt.axis('off')
     plt.tight_layout()
-    plt.show()
     
-    print(f"Displayed image with {count} people detected")
+    # In Docker/non-interactive mode, save image instead of showing
+    if matplotlib.get_backend().lower() == 'agg':
+        output_dir = BASE_DIR / "output"
+        output_dir.mkdir(exist_ok=True)
+        file_counter += 1
+        output_path = output_dir / f"result_{file_counter:03d}.png"
+        plt.savefig(output_path, dpi=150, bbox_inches='tight')
+        print(f"Saved visualization to {output_path}")
+        plt.close()
+    else:
+        plt.show()
+    
+    print(f"Processed image with {count} people detected")
     
     # Ask user to continue or exit
     user_input = input("Press Enter for next image, or 'q' to quit: ")

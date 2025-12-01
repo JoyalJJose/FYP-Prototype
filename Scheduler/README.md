@@ -10,12 +10,14 @@ Vehicle deployment scheduling system that monitors passenger demand and automati
 
 ## How to Run
 
-1. Compile the Java files:
+1. **Compile the Java files**:
    ```bash
    javac -d . src/*.java
    ```
+   
+   **Note**: If you're using Docker, the Java files are already compiled in the Docker image.
 
-2. Run the scheduler:
+2. **Run the scheduler**:
    ```bash
    java Scheduler
    ```
