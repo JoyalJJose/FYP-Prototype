@@ -9,7 +9,7 @@ COPY src/ ./src/
 COPY data*.txt ./
 
 # Compile Java files
-RUN javac -d . src/*.java
+RUN javac -encoding UTF-8 -d . src/*.java
 
 # No default command - run manually with docker-compose run
 

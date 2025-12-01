@@ -33,7 +33,7 @@ COPY Scheduler/src/ ./Scheduler/src/
 COPY Scheduler/data*.txt ./Scheduler/
 
 # Compile Java files (output to Scheduler directory)
-RUN javac -d ./Scheduler ./Scheduler/src/*.java
+RUN javac -encoding UTF-8 -d ./Scheduler ./Scheduler/src/*.java
 
 # Copy InferProto application code (includes models/weights/best.pt from the repository)
 COPY InferProto/ ./InferProto/
