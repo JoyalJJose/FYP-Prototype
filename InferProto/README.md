@@ -8,7 +8,6 @@ Crowd counting module that allows to count the number of people in a thermal ima
 - `test_random_inference.py` - Script to test inference on images
 - `models/weights/best.pt` - Trained YOLO model (~62 epochs)
 - `data/sample_images/` - 50 sample thermal images for demonstration
-- `requirements.txt` - Python dependencies
 
 ## Quick Start
 

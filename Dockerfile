@@ -25,7 +25,7 @@ RUN pip install --no-cache-dir torch==2.9.1+cu128 torchvision==0.24.1+cu128 --in
     (echo "CUDA 12.8 PyTorch not available, falling back to CUDA 11.8..." && \
      pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu118)
 
-# Install remaining dependencies from requirements.txt (excluding torch and torchvision)
+# Install remaining dependencies (excluding torch and torchvision)
 RUN pip install --no-cache-dir ultralytics==8.3.228 opencv-python==4.12.0.88 numpy==2.2.6 Pillow==12.0.0 matplotlib==3.10.7 pyyaml==6.0.3
 
 # Copy Scheduler Java source files and data files

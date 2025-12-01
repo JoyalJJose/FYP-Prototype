@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements file
-COPY requirements.txt .
-
 # Install Python dependencies
 # Upgrade pip first
 RUN pip install --no-cache-dir --upgrade pip
@@ -23,8 +20,7 @@ RUN pip install --no-cache-dir torch==2.9.1+cu128 torchvision==0.24.1+cu128 --in
     (echo "CUDA 12.8 PyTorch not available, falling back to CUDA 11.8..." && \
      pip install --no-cache-dir torch torchvision --index-url https://download.pytorch.org/whl/cu118)
 
-# Install remaining dependencies from requirements.txt (excluding torch and torchvision)
-# Filter out torch and torchvision, then install the rest
+# Install remaining dependencies (excluding torch and torchvision)
 RUN pip install --no-cache-dir ultralytics==8.3.228 opencv-python==4.12.0.88 numpy==2.2.6 Pillow==12.0.0 matplotlib==3.10.7 pyyaml==6.0.3
 
 # Copy application code (includes models/weights/best.pt from the repository)
