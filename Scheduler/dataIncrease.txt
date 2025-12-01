@@ -1,0 +1,82 @@
+# Sample data file - Increased count event scenario
+# Format: stop id, crowdCount, timestamp, state
+# 3-stage cycle: ARRIVING -> PRESENT -> DEPARTING
+# Each event has 3 timestamps showing the progression
+
+# Cycle 0: Initial state - vehicles arrive at stops
+1, 12, 08:00:00, moderate
+2, 8, 08:00:00, empty
+3, 15, 08:00:00, moderate
+4, 10, 08:00:00, moderate
+
+# Cycle 1: Vehicles present at stops (passengers may accumulate)
+1, 13, 08:01:00, moderate
+2, 9, 08:01:00, empty
+3, 16, 08:01:00, moderate
+4, 11, 08:01:00, moderate
+
+# Cycle 2: Vehicles depart (stop counts decrease after pickup)
+1, 1, 08:02:00, moderate
+2, 1, 08:02:00, empty
+3, 16, 08:02:00, moderate
+4, 11, 08:02:00, moderate
+
+# Cycle 3: Vehicles arrive at next stops (gradual increase in demand)
+1, 16, 08:03:00, moderate
+2, 12, 08:03:00, moderate
+3, 20, 08:03:00, moderate
+4, 14, 08:03:00, moderate
+
+# Cycle 4: Vehicles present (demand continues to grow)
+1, 18, 08:04:00, moderate
+2, 14, 08:04:00, moderate
+3, 22, 08:04:00, moderate
+4, 16, 08:04:00, moderate
+
+# Cycle 5: Vehicles depart (some passengers remain)
+1, 2, 08:05:00, moderate
+2, 2, 08:05:00, moderate
+3, 22, 08:05:00, moderate
+4, 16, 08:05:00, moderate
+
+# Cycle 6: Increased demand - vehicles arrive (rush hour begins)
+1, 38, 08:06:00, busy
+2, 32, 08:06:00, busy
+3, 45, 08:06:00, busy
+4, 42, 08:06:00, busy
+
+# Cycle 7: Vehicles present (high demand continues to accumulate)
+1, 42, 08:07:00, busy
+2, 36, 08:07:00, busy
+3, 48, 08:07:00, busy
+4, 45, 08:07:00, busy
+
+# Cycle 8: Vehicles depart (high demand persists, many passengers remain)
+1, 22, 08:08:00, busy
+2, 18, 08:08:00, busy
+3, 28, 08:08:00, busy
+4, 25, 08:08:00, busy
+
+# Cycle 9: Vehicles arrive at next stops (V2 arrives at Stop E, demand still elevated)
+1, 28, 08:09:00, busy
+2, 24, 08:09:00, busy
+3, 32, 08:09:00, busy
+4, 30, 08:09:00, busy
+
+# Cycle 10: Vehicles present (V2 present at Stop E, passengers emptied, demand high)
+1, 30, 08:10:00, busy
+2, 26, 08:10:00, busy
+3, 35, 08:10:00, busy
+4, 32, 08:10:00, busy
+
+# Cycle 11: Vehicles depart (V2 departs from Stop E, no pickup, elevated demand continues)
+1, 12, 08:11:00, busy
+2, 10, 08:11:00, busy
+3, 18, 08:11:00, busy
+4, 15, 08:11:00, busy
+
+# Cycle 12: Vehicles arrive (V2 removed from route in this cycle, demand still elevated)
+1, 25, 08:12:00, busy
+2, 22, 08:12:00, busy
+3, 30, 08:12:00, busy
+4, 28, 08:12:00, busy

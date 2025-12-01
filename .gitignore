@@ -9,7 +9,7 @@ Thermal Image Crowd Counting/
 
 # Model Training Outputs (large files)
 runs/
-datasets/
+datasets*/
 results/
 *.pt
 *.pth
@@ -17,3 +17,14 @@ results/
 # Python Cache
 __pycache__/
 *.pyc
+
+# Java Compiled Files
+*.class
+
+# Java IDE Files
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
