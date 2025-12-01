@@ -28,6 +28,8 @@ The easiest way to run this project without installing dependencies is using Doc
    ```bash
    docker-compose build
    ```
+   Please note that this takes quite a while (approx 15 min).
+   Recommend to look around code while waiting for build to finish.
 
 ### Running the Programs
 
